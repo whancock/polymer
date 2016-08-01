@@ -23,103 +23,108 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-app">
 
-  <template>
+	<template>
 
-    <style>
+		<style>
 
-      :host {
-        display: block;
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
-      }
+			:host {
+				display: block;
+				--app-primary-color: #4285f4;
+				--app-secondary-color: black;
+			}
 
-      .drawer-list {
-        margin: 0 20px;
-      }
-      .drawer-list a {
-        display: block;
-        padding: 0 16px;
-        line-height: 40px;
-        text-decoration: none;
-        color: var(--app-secondary-color);
-      }
-      .drawer-list a.iron-selected {
-        color: black;
-        font-weight: bold;
-      }
-      .drawer-list a.subroute {
-        padding-left: 32px;
-      }
+			.drawer-list {
+				margin: 0 20px;
+			}
+			.drawer-list a {
+				display: block;
+				padding: 0 16px;
+				line-height: 40px;
+				text-decoration: none;
+				color: var(--app-secondary-color);
+			}
+			.drawer-list a.iron-selected {
+				color: black;
+				font-weight: bold;
+			}
+			.drawer-list a.subroute {
+				padding-left: 32px;
+			}
 
-    </style>
+		</style>
 
-    <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+		<app-location route="{{route}}"></app-location>
+		<app-route
+				route="{{route}}"
+				pattern="/:page"
+				data="{{routeData}}"
+				tail="{{subroute}}"></app-route>
 
-    <app-drawer-layout fullbleed>
+		<app-drawer-layout fullbleed>
 
-      <!-- Drawer content -->
-      <app-drawer>
-        <app-toolbar>Will Hancock</app-toolbar>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="resume" href="/resume">cv</a>
-          <a name="publications" href="/publications">publications</a>
-        </iron-selector>
+			<!-- Drawer content -->
+			<app-drawer>
 
-        <a href="https://github.com/whancock" target="_blank">github</a>
-        
-      </app-drawer>
+			<img style="border-radius: 50%; width: 80px; height: 80px;" src="/images/porcelain.jpg">
 
-      <!-- Main content -->
-      <app-header-layout has-scrolling-region>
+				<app-toolbar>Will Hancock</app-toolbar>
+				<iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+					<a name="resume" href="/resume">cv</a>
+					<a name="publications" href="/publications">publications</a>
+					<a name="gallery" href="/gallery">gallery</a>
+				</iron-selector>
 
-        <iron-pages style="height: 100%; width: 100%;" role="main" selected="[[page]]" attr-for-selected="name">
-          <wh-resume name="resume"></wh-resume>
-          <wh-publications name="publications"></wh-publications>
-        </iron-pages>
+				<a href="https://github.com/whancock" target="_blank">github</a>
 
-      </app-header-layout>
+			</app-drawer>
 
-    </app-drawer-layout>
+			<!-- Main content -->
+			<app-header-layout has-scrolling-region>
 
-  </template>
+				<iron-pages style="height: 100%; width: 100%;" role="main" selected="[[page]]" attr-for-selected="name">
+					<wh-resume name="resume"></wh-resume>
+					<wh-publications name="publications"></wh-publications>
+					<wh-gallery name="gallery"></wh-gallery>
+				</iron-pages>
 
-  <script>
+			</app-header-layout>
 
-    Polymer({
+		</app-drawer-layout>
 
-      is: 'my-app',
+	</template>
 
-      properties: {
+	<script>
 
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged'
-        },
+		Polymer({
 
-      },
+			is: 'my-app',
 
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
+			properties: {
 
-      _routePageChanged: function(page) {
-        this.page = page || 'resume';
-      },
+				page: {
+					type: String,
+					reflectToAttribute: true,
+					observer: '_pageChanged'
+				},
 
-      _pageChanged: function(page) {
-        // load page import on demand.
-        this.importHref(
-          this.resolveUrl(page + '.html'), null, null, true);
-      }
+			},
 
-    });
+			observers: [
+				'_routePageChanged(routeData.page)'
+			],
 
-  </script>
+			_routePageChanged: function(page) {
+				this.page = page || 'resume';
+			},
+
+			_pageChanged: function(page) {
+				// load page import on demand.
+				this.importHref(
+					this.resolveUrl(page + '.html'), null, null, true);
+			}
+
+		});
+
+	</script>
 
 </dom-module>
