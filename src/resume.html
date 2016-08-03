@@ -9,12 +9,241 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
 
 <dom-module id="wh-resume">
 
 	<template>
 
-		<iframe style="border: none; height:100%; width: 100%;" src="http://willhancock.net/resume/"></iframe>
+		<iron-ajax
+			auto
+			url="../data/cv.json"
+			handle-as="json"
+			last-response="{{will}}"></iron-ajax>
+
+		<style include="iron-flex iron-flex-alignment">
+
+			#content-wrapper {
+				font-family: 'Open Sans', sans-serif;
+				padding: 40px 20px 140px;
+				width: 8.5in !important;
+				margin: auto;
+				font-size: 14px;
+				line-height: 1.42857143;
+				color: #333;
+			}
+
+			ul {
+				margin-top: 0;
+			}
+
+			.left-label {
+				font-weight: bold;
+			}
+
+			.title {
+				font-weight: bold;
+			}
+
+			.desc {
+				max-width: 500px;
+			}
+
+			.date-right {
+				float: right;
+				font-style: italic;
+			}
+
+			.position {
+				margin-bottom: 20px;
+			}
+
+			.h1, .h2, .h3, h1, h2, h3 {
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+
+			.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+				font-family: inherit;
+				font-weight: 500;
+				line-height: 1.1;
+				color: inherit;
+			}
+
+			h1 {
+				margin: .67em 0;
+				font-size: 2em;
+			}
+
+			.h1, h1 {
+				font-size: 36px;
+			}
+
+			.h5, h5 {
+				font-size: 14px;
+			}
+			.h4, .h5, .h6, h4, h5, h6 {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+
+			iron-icon {
+				width: 16px;
+			}
+
+			.left-heading {
+				width: 140px;
+				font-weight: bold;
+			}
+
+		</style>
+
+		<div id="content-wrapper">
+
+			<h1>{{will.name}}</h1>
+			<h5>
+				<iron-icon icon="communication:phone"></iron-icon>
+				<span>{{will.phone}}</span>
+			</h5>
+			<h5>
+				<iron-icon icon="communication:mail-outline"></iron-icon>
+				<span>{{will.email}}</span>
+			</h5>
+			<h5>
+				<span>
+					<iron-icon icon="maps:place"></iron-icon>
+					<span>{{will.city}}, {{will.state}}</span>
+					<span>{{will.zip}}</span>
+				</span>
+			</h5>
+
+			<hr>
+
+			<div class="horizontal layout">
+
+				<div class="left-heading">{{will.edu.label}}</div>
+
+				<div class="flex">
+
+					<template is="dom-repeat" items="{{will.edu.entry}}" as="school">
+						<div>
+							<span class="title">{{school.name}}</span>
+							<span>, </span>
+							<span>{{school.location}}</span>
+						</div>
+
+						<template is="dom-repeat" items="{{school.level}}" as="grade">
+							<span>{{grade.label}}</span>
+							<span class="date-right">
+								<span>{{grade.dateStart}}</span>
+								<span ng-if="grade.dateEnd"> - </span>
+								<span>{{grade.dateEnd}}</span>
+							</span>
+						</template>
+					</template>
+
+				</div>
+			</div>
+
+			<div class="horizontal layout">
+
+				<div class="left-heading">{{will.experience.label}}</div>
+
+				<div class="flex">
+
+					<template is="dom-repeat" items="{{will.experience.entry}}" as="position">
+
+						<div>
+							<span>
+								<span class="title">{{position.name}}</span>
+								<span>, </span>
+								<span>{{position.location}}</span>
+							</span>
+
+							<span class="date-right">
+								<span>{{position.dateStart}}</span>
+								<template is="dom-if" if="{{position.dateEnd}}">
+									<span> - </span>
+								</template>
+								<span>{{position.dateEnd}}</span>
+							</span>
+						</div>
+
+						<div>{{position.position}}</div>		
+
+						<ul>
+							<template is="dom-repeat" items="{{position.roles}}" as="role">
+								<li class="desc">{{role}}</li>
+							</template>
+						</ul>
+					</template>
+
+				</div>
+			</div>
+
+			<div class="horizontal layout">
+
+				<div class="left-heading">{{will.activities.label}}</div>
+
+				<div class="flex">
+
+					<template is="dom-repeat" items="{{will.activities.entry}}" as="activity">
+
+						<div>
+							<span>
+								<span class="title">{{activity.name}}</span>
+								<span>, </span>
+								<span>{{activity.location}}</span>
+							</span>
+
+							<span class="date-right">
+								<span>{{activity.dateStart}}</span>
+								<span ng-if="activity.dateEnd"> - </span>
+								<span>{{activity.dateEnd}}</span>
+							</span>
+						</div>
+
+						<ul>
+							<template is="dom-repeat" items="{{activity.roles}}" as="description">
+								<li>{{description}}</li>
+							</template>
+							
+						</ul>
+
+					</template>
+				</div>
+			</div>
+
+			<div class="horizontal layout">
+				<div class="left-heading">{{will.skills.label}}</div>
+				<div class="flex">
+					<ul>
+						<template is="dom-repeat" items="{{will.skills.entry}}" as="skill">
+							<li>{{skill}}</li>
+						</template>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="horizontal layout">
+				<div class="left-heading">{{will.awards.label}}</div>
+				<div flex>
+					<ul>
+						<template is="dom-repeat" items="{{will.awards.entry}}" as="award">
+							<li>{{award}}</li>
+						</template>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
 
 	</template>
 

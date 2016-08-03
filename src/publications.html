@@ -12,7 +12,12 @@
 			last-response="{{publications}}"></iron-ajax>
 
 		<template is="dom-repeat" items="{{publications}}" as="pub">
-			<div>Title: <span>{{pub.title}}</span></div>
+			<div>
+				<span>{{pub.authors}}</span>
+				<span>({{pub.year}}).</span>
+				<span style="font-weight: bold;">{{pub.title}}</span>
+				<span>{{pub.conference}}</span>
+			</div>
 		</template>
 
 
