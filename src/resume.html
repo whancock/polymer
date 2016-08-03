@@ -21,10 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	<template>
 
 		<iron-ajax
-			auto
-			url="../data/cv.json"
-			handle-as="json"
-			last-response="{{will}}"></iron-ajax>
+		auto
+		url="../data/cv.json"
+		handle-as="json"
+		last-response="{{will}}"></iron-ajax>
 
 		<style include="iron-flex iron-flex-alignment">
 
@@ -38,8 +38,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				color: #333;
 			}
 
+			hr {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				border: 0;
+				border-top: 1px solid #eee;
+			}
+
 			ul {
 				margin-top: 0;
+				margin-bottom: 0;
 			}
 
 			.left-label {
@@ -102,6 +110,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				font-weight: bold;
 			}
 
+			.topic-section-wrapper > div+div {
+				margin-top: 18px;
+			}
+
+			.wedge+.wedge {
+				margin-top: 18px;
+			}
+
 		</style>
 
 		<div id="content-wrapper">
@@ -119,127 +135,149 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				<span>
 					<iron-icon icon="maps:place"></iron-icon>
 					<span>{{will.city}}, {{will.state}}</span>
-					<span>{{will.zip}}</span>
 				</span>
 			</h5>
 
 			<hr>
 
-			<div class="horizontal layout">
+			<div class="vertical layout topic-section-wrapper">
 
-				<div class="left-heading">{{will.edu.label}}</div>
+				<div class="horizontal layout">
 
-				<div class="flex">
+					<div class="left-heading">{{will.edu.label}}</div>
 
-					<template is="dom-repeat" items="{{will.edu.entry}}" as="school">
-						<div>
-							<span class="title">{{school.name}},</span>
-							<span>{{school.location}}</span>
-						</div>
+					<div class="flex">
 
-						<template is="dom-repeat" items="{{school.level}}" as="grade">
-							<span>{{grade.label}}</span>
-							<span class="date-right">
-								<span>{{grade.dateStart}}</span>
-								<span ng-if="grade.dateEnd"> - </span>
-								<span>{{grade.dateEnd}}</span>
-							</span>
+						<template is="dom-repeat" items="{{will.edu.entry}}" as="school">
+							<div>
+								<span class="title">{{school.name}},</span>
+								<span>{{school.location}}</span>
+							</div>
+
+							<template is="dom-repeat" items="{{school.level}}" as="grade">
+
+								<div class="horizontal layout">
+
+									<span>{{grade.label}}</span>
+
+									<span class="flex"></span>
+
+									<span class="date-right">
+										<span>{{grade.dateStart}}</span>
+										<span ng-if="grade.dateEnd"> - </span>
+										<span>{{grade.dateEnd}}</span>
+									</span>
+
+								</div>
+							</template>
 						</template>
-					</template>
 
+					</div>
 				</div>
-			</div>
 
-			<div class="horizontal layout">
+				<div class="horizontal layout">
 
-				<div class="left-heading">{{will.experience.label}}</div>
+					<div class="left-heading">{{will.experience.label}}</div>
 
-				<div class="flex">
+					<div class="flex">
 
-					<template is="dom-repeat" items="{{will.experience.entry}}" as="position">
+						<template is="dom-repeat" items="{{will.experience.entry}}" as="position">
 
-						<div>
-							<span>
-								<span class="title">{{position.name}}</span>
-								<span>, </span>
-								<span>{{position.location}}</span>
-							</span>
+							<div class="wedge">
 
-							<span class="date-right">
-								<span>{{position.dateStart}}</span>
-								<template is="dom-if" if="{{position.dateEnd}}">
-									<span> - </span>
-								</template>
-								<span>{{position.dateEnd}}</span>
-							</span>
-						</div>
+								<div>
+									<span>
+										<span class="title">{{position.name}}</span>
+										<span>, </span>
+										<span>{{position.location}}</span>
+									</span>
 
-						<div>{{position.position}}</div>		
+									<span class="date-right">
+										<span>{{position.dateStart}}</span>
+										<template is="dom-if" if="{{position.dateEnd}}">
+											<span> - </span>
+										</template>
+										<span>{{position.dateEnd}}</span>
+									</span>
+								</div>
 
+								<div>{{position.position}}</div>		
+
+								<ul>
+									<template is="dom-repeat" items="{{position.roles}}" as="role">
+										<li class="desc">{{role}}</li>
+									</template>
+								</ul>
+
+							</div>
+
+						</template>
+
+					</div>
+				</div>
+
+				<div class="horizontal layout">
+
+					<div class="left-heading">{{will.activities.label}}</div>
+
+					<div class="flex">
+
+						<template is="dom-repeat" items="{{will.activities.entry}}" as="activity">
+
+							<div class="wedge">
+
+								<div>
+									<span>
+										<span class="title">{{activity.name}}</span>
+										<span>, </span>
+										<span>{{activity.location}}</span>
+									</span>
+
+									<span class="date-right">
+										<span>{{activity.dateStart}}</span>
+										<template is="dom-if" if="{{activity.dateEnd}}">
+											<span> - </span>
+										</template>
+										<span>{{activity.dateEnd}}</span>
+									</span>
+								</div>
+
+								<ul>
+									<template is="dom-repeat" items="{{activity.roles}}" as="description">
+										<li>{{description}}</li>
+									</template>
+
+								</ul>
+
+							</div>
+
+						</template>
+					</div>
+				</div>
+
+				<div class="horizontal layout">
+					<div class="left-heading">{{will.skills.label}}</div>
+					<div class="flex">
 						<ul>
-							<template is="dom-repeat" items="{{position.roles}}" as="role">
-								<li class="desc">{{role}}</li>
+							<template is="dom-repeat" items="{{will.skills.entry}}" as="skill">
+								<li>{{skill}}</li>
 							</template>
 						</ul>
-					</template>
-
+					</div>
 				</div>
-			</div>
 
-			<div class="horizontal layout">
 
-				<div class="left-heading">{{will.activities.label}}</div>
-
-				<div class="flex">
-
-					<template is="dom-repeat" items="{{will.activities.entry}}" as="activity">
-
-						<div>
-							<span>
-								<span class="title">{{activity.name}}</span>
-								<span>, </span>
-								<span>{{activity.location}}</span>
-							</span>
-
-							<span class="date-right">
-								<span>{{activity.dateStart}}</span>
-								<span ng-if="activity.dateEnd"> - </span>
-								<span>{{activity.dateEnd}}</span>
-							</span>
-						</div>
-
+				<div class="horizontal layout">
+					<div class="left-heading">{{will.awards.label}}</div>
+					<div flex>
 						<ul>
-							<template is="dom-repeat" items="{{activity.roles}}" as="description">
-								<li>{{description}}</li>
+							<template is="dom-repeat" items="{{will.awards.entry}}" as="award">
+								<li>{{award}}</li>
 							</template>
-							
 						</ul>
-
-					</template>
+					</div>
 				</div>
-			</div>
 
-			<div class="horizontal layout">
-				<div class="left-heading">{{will.skills.label}}</div>
-				<div class="flex">
-					<ul>
-						<template is="dom-repeat" items="{{will.skills.entry}}" as="skill">
-							<li>{{skill}}</li>
-						</template>
-					</ul>
-				</div>
-			</div>
-
-
-			<div class="horizontal layout">
-				<div class="left-heading">{{will.awards.label}}</div>
-				<div flex>
-					<ul>
-						<template is="dom-repeat" items="{{will.awards.entry}}" as="award">
-							<li>{{award}}</li>
-						</template>
-					</ul>
-				</div>
 			</div>
 
 		</div>
