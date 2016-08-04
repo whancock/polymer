@@ -36,23 +36,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				--app-secondary-color: black;
 			}
 
-			.drawer-list {
-				margin: 0 20px;
-			}
-			.drawer-list a {
-				display: block;
-				padding: 0 16px;
-				line-height: 40px;
-				text-decoration: none;
-				color: var(--app-secondary-color);
-			}
-			.drawer-list a.iron-selected {
+			.left-nav-links a {
 				color: black;
-				font-weight: bold;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: 500;
+				font-size: 12px;
 			}
-			.drawer-list a.subroute {
-				padding-left: 32px;
+
+			.route-selector a.iron-selected {
+				font-weight: 600;
 			}
+
+
 
 		</style>
 
@@ -73,13 +69,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 					<img style="border-radius: 50%; width: 80px; height: 80px;" src="/images/porcelain.jpg">
 
 					<app-toolbar>Will Hancock</app-toolbar>
-					<iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-						<a name="resume" href="/resume">cv</a>
-						<a name="publications" href="/publications">publications</a>
-						<a name="gallery" href="/gallery">gallery</a>
-					</iron-selector>
 
-					<a href="https://github.com/whancock" target="_blank">github</a>
+					<div class="layout vertical center left-nav-links">
+
+						<iron-selector selected="[[page]]" attr-for-selected="name" role="navigation" class="vertical layout center route-selector">
+							<a name="resume" href="/resume">cv</a>
+							<a name="publications" href="/publications">publications</a>
+							<a name="gallery" href="/gallery">gallery</a>
+						</iron-selector>
+
+						<a href="https://github.com/whancock" target="_blank">github</a>
+
+					</div>
 
 				</div>
 
