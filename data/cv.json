@@ -45,8 +45,10 @@
 				"dateEnd": "May 2016",
 				"position": "Frontend Consultant",
 				"roles": [
-					"Oversee frontend migration to AngularJS",
-					"Work closely with UX lead to develop prototype app using material design"
+					"Oversaw frontend migration to AngularJS from .NET",
+					"Devoloped custom Angular build process/ecosystem",
+					"Strived for minimal and maintainable lib dependencies",
+					"Worked closely with UX lead to develop prototype app using material design"
 				]
 			},
 			{
@@ -75,7 +77,7 @@
 			{
 				"name": "Javlin, Inc.",
 				"location": "Prague, Czech Republic",
-				"position": "Software Enginneer",
+				"position": "Software Engineer",
 				"dateStart": "spring 2011",
 				"roles": [
 					"Developed ETL software using Eclipse/Java SWT"
@@ -128,32 +130,6 @@
 				"roles": [
 					"Volunteer four hours/wk providing Atlanta with affordable bike maintenance"
 				]
-			},
-			{
-				"name": "Georgia Aquarium",
-				"location": "Atlanta, GA",
-				"dateStart": "2007, Oct 2013",
-				"dateEnd": "present",
-				"roles": [
-					"Volunteer to help engage guests and help with day to day operations"
-				]
-			},
-			{
-				"name": "Study Abroad",
-				"location": "UPC, Barcelona, Spain",
-				"dateStart": "summer 2008"
-			},
-			{
-				"name": "Study Abroad",
-				"location": "Renmin University, Beijing, China",
-				"dateStart": "Sept 2009",
-				"dateEnd": "July 2010"
-			},
-			{
-				"name": "English Tutor",
-				"location": "Beijing, China",
-				"dateStart": "Nov 2009",
-				"dateEnd": "July 2010"
 			}
 		]
 	},
