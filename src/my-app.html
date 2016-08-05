@@ -23,7 +23,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="my-icons.html">
 
-
 <dom-module id="my-app">
 
 	<template>
@@ -34,6 +33,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				display: block;
 				--app-primary-color: #4285f4;
 				--app-secondary-color: black;
+				color: #333;
 			}
 
 			.left-nav-links a {
@@ -42,6 +42,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				text-transform: uppercase;
 				font-weight: 500;
 				font-size: 12px;
+			}
+
+			.left-nav-links a:hover {
+				text-decoration: underline;
 			}
 
 			.route-selector a.iron-selected {
@@ -68,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 					<img style="border-radius: 50%; width: 80px; height: 80px;" src="/images/porcelain.jpg">
 
-					<app-toolbar>Will Hancock</app-toolbar>
+					<span style="font-weight: 100; font-size: 32px; margin: 20px 0;">Will Hancock</span>
 
 					<div class="layout vertical center left-nav-links">
 
