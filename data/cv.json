@@ -122,6 +122,12 @@
 		"label": "Activities",
 		"entry": [
 			{
+				"name": "Computer Vision (CS4495) Teacher's Assistant",
+				"location": "Georgia Tech",
+				"position": "Teacher's Assistant",
+				"dateStart": "Aug 2014",
+				"dateEnd": "May 2015"
+			}, {
 				"name": "SOPO Bicycle Co-op",
 				"location": "Atlanta, GA",
 				"position": "Manager",
