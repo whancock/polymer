@@ -15,7 +15,7 @@
 				{
 					"label": "Master of Science in Computer Science",
 					"dateStart": "Aug 2014",
-					"dateEnd": "present"
+					"dateEnd": "Dec 2016"
 				},
 				{
 					"label": "Bachelor of Science in Computer Science",
@@ -24,6 +24,15 @@
 				}
 			]
 		}]
+	},
+
+	"interests": {
+		"label": "Interests",
+		"entry": [
+			"NLU",
+			"Commonsense Knowledge Learning",
+			"Analogical Reasoning"
+		]
 	},
 
 	"experience": {
@@ -59,6 +68,16 @@
 				"roles": [
 					"Researching theory of invention by giving analogical reasoning information processing account of biologically inspired design prototypes",
 					"Developing Design Study Library, a research tool to teach biologically inspired design processes to non-experts"
+				]
+			},
+			{
+				"name": "Entertainment Intelligence Lab",
+				"location": "Georgia Tech",
+				"dateStart": "Jan 2015",
+				"dateEnd": "present",
+				"roles": [
+					"Researching learning narrative models using deep learning",
+					"Implemented narrative improv system using DBNs to allow human to interact with AI story agents"
 				]
 			},
 			{
@@ -122,7 +141,12 @@
 		"label": "Activities",
 		"entry": [
 			{
-				"name": "Computer Vision (CS4495) Teacher's Assistant",
+				"name": "TA for KBAI (CS7637)",
+				"location": "Georgia Tech",
+				"position": "Teacher's Assistant",
+				"dateStart": "fall 2016"
+			}, {
+				"name": "TA for Computer Vision (CS4495)",
 				"location": "Georgia Tech",
 				"position": "Teacher's Assistant",
 				"dateStart": "Aug 2014",
@@ -142,7 +166,10 @@
 
 	"awards": {
 		"label": "Awards",
-		"entry": ["Eagle Scout, Boy Scouts of America"]
+		"entry": [
+			"CS7632 Game AI Best Pathfinder (class of ~100)", 
+			"Eagle Scout, Boy Scouts of America"
+		]
 	}
 
 }
