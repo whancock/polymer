@@ -36,73 +36,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				color: #333;
 			}
 
-			.left-nav-links a {
-				color: black;
-				text-decoration: none;
-				text-transform: uppercase;
-				font-weight: 500;
-				font-size: 12px;
-			}
-
-			.left-nav-links a:hover {
-				text-decoration: underline;
-			}
-
-			.route-selector a.iron-selected {
-				font-weight: 600;
-			}
-
-
-
 		</style>
 
 		<app-location route="{{route}}"></app-location>
+
 		<app-route
 				route="{{route}}"
 				pattern="/:page"
 				data="{{routeData}}"
-				tail="{{subroute}}"></app-route>
+				tail="{{subroute}}">
+		</app-route>
 
-		<app-drawer-layout fullbleed>
-
-			<!-- Drawer content -->
-			<app-drawer>
-
-				<div class="layout vertical center" style="padding-top: 100px;">
-
-					<img style="border-radius: 50%; width: 80px; height: 80px;" src="/images/porcelain.jpg">
-
-					<span style="font-weight: 100; font-size: 32px; margin: 20px 0;">Will Hancock</span>
-
-					<div class="layout vertical center left-nav-links">
-
-						<iron-selector selected="[[page]]" attr-for-selected="name" role="navigation" class="vertical layout center route-selector">
-							<a name="resume" href="/resume">cv</a>
-							<a name="publications" href="/publications">publications</a>
-							<a name="gallery" href="/gallery">gallery</a>
-						</iron-selector>
-
-						<a href="https://github.com/whancock" target="_blank">github</a>
-
-					</div>
-
-				</div>
-
-			</app-drawer>
-
-			<!-- Main content -->
-			<app-header-layout has-scrolling-region>
-
-				<iron-pages style="height: 100%; width: 100%;" role="main" selected="[[page]]" attr-for-selected="name">
-					<wh-resume name="resume"></wh-resume>
-					<wh-publications name="publications"></wh-publications>
-					<wh-gallery name="gallery"></wh-gallery>
-					<wh-resumeraw name="resumeraw"></wh-resumeraw>
-				</iron-pages>
-
-			</app-header-layout>
-
-		</app-drawer-layout>
+		<iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+			<wh-resume name="resume"></wh-resume>
+			<wh-main name="main"></wh-main>
+		</iron-pages>
 
 	</template>
 
@@ -128,15 +76,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 			_routePageChanged: function(page) {
 
-				console.log("the page is changing to", page);
-
-				this.page = page || 'resume';
+				if(page == "content") {
+					this.page = "resume";
+				} else {
+					this.page = "main";
+				}
 			},
 
 			_pageChanged: function(page) {
-				// load page import on demand.
-				this.importHref(
-					this.resolveUrl(page + '.html'), null, null, true);
+				this.importHref(this.resolveUrl(page + '.html'), null, null, true);
 			}
 
 		});

@@ -149,8 +149,8 @@
 				"name": "TA for Computer Vision (CS4495)",
 				"location": "Georgia Tech",
 				"position": "Teacher's Assistant",
-				"dateStart": "Aug 2014",
-				"dateEnd": "May 2015"
+				"dateStart": "fall 2014, spring 2015",
+				"dateEnd": ""
 			}, {
 				"name": "SOPO Bicycle Co-op",
 				"location": "Atlanta, GA",
@@ -167,7 +167,7 @@
 	"awards": {
 		"label": "Awards",
 		"entry": [
-			"CS7632 Game AI Best Pathfinder (class of ~100)", 
+			"CS7632 Game AI - Best pathfinder assignment (class of ~100)", 
 			"Eagle Scout, Boy Scouts of America"
 		]
 	}
