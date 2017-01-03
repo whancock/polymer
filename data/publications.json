@@ -3,17 +3,20 @@
 	"authors": "Ashok Goel, William Hancock, Keith Frazer and Christian Tuchez",
 	"conference": "Proceedings of the 2016 International Conference on Design Creativity",
 	"location": "Atlanta, GA",
-	"year": "2016"
+	"year": "2016",
+	"link": "/content/papers/4th_ICDC_Final.pdf"
 }, {
 	"title": "Is Biologically Inspired Design Domain Independent?",
 	"authors": "Ashok Goel, Christian Tuchez, William Hancock and Keith Frazer",
 	"conference": "Design Computing and Cognition'16: Proceedings of the Sixth International Conference on Design Computing and Cognition",
 	"location": "Evanston, IL",
-	"year": "2016"
+	"year": "2016",
+	"link": "/content/papers/DSL-DCC-Final.pdf"
 }, {
-	"title": "Using Watson for Constructing Cognitive Systems",
+	"title": "Using Watson for Constructing Cognitive Assistants",
 	"authors": "Ashok Goel, Tory Anderson, Jordan Belknap, Brian Creeden, William Hancock, Mithun Kumble, Shanu Salunke, Bradley Sheneman, Abhinaya Shetty and Bryan Wiltgen",
 	"conference": "Proceedings of the Fourth Annual Conference on Advances in Cognitive Systems",
 	"location": "Evanston, IL",
-	"year": "2016"
+	"year": "2016",
+	"link": "/content/papers/Goel_et.al-ACS-2016.pdf"
 }]
