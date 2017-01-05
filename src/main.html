@@ -29,12 +29,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				font-size: 12px;
 			}
 
-			.left-nav-links a:hover {
-				text-decoration: underline;
-			}
-
 			.route-selector a.iron-selected {
 				font-weight: 600;
+				color: #ff6600;
 			}
 
 
@@ -112,16 +109,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			],
 
 			_routePageChanged: function(page) {
-
-				console.log("the page is changing to", page);
-
 				this.page = page || 'resume';
 			},
 
 			_pageChanged: function(page) {
 				// load page import on demand.
-				this.importHref(
-					this.resolveUrl(page + '.html'), null, null, true);
+				this.importHref(this.resolveUrl(page + '.html'), null, null, true);
 			}
 
 		});
