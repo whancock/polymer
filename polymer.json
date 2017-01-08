@@ -4,6 +4,7 @@
   "fragments": [
     "src/resume.html",
     "src/publications.html",
-    "src/gallery.html"
+    "src/gallery.html",
+    "src/view404.html"
   ]
 }

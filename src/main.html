@@ -80,6 +80,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 					<wh-publications name="publications"></wh-publications>
 					<wh-gallery name="gallery"></wh-gallery>
 					<wh-resumeraw name="resumeraw"></wh-resumeraw>
+					<wh-view404 name="view404"></wh-view404>
 				</iron-pages>
 
 			</app-header-layout>
@@ -114,7 +115,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 			_pageChanged: function(page) {
 				// load page import on demand.
-				this.importHref(this.resolveUrl(page + '.html'), null, null, true);
+				this.importHref(this.resolveUrl(page + '.html'), null, this._view404, true);
+			},
+
+			_view404: function() {
+				console.log("419 is not a game");
+				this.page = 'view404';
 			}
 
 		});

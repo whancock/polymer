@@ -47,9 +47,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				tail="{{subroute}}">
 		</app-route>
 
-		<iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+		<iron-pages role="main" 
+					selected="[[page]]" 
+					fallback-selection="view404"
+					attr-for-selected="name">
+
 			<wh-resume name="resume"></wh-resume>
 			<wh-main name="main"></wh-main>
+
 		</iron-pages>
 
 	</template>
@@ -84,8 +89,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			},
 
 			_pageChanged: function(page) {
+				console.log("changing to", page);
 				this.importHref(this.resolveUrl(page + '.html'), null, null, true);
 			}
+
 
 		});
 
