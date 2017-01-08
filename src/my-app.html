@@ -90,9 +90,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 			_pageChanged: function(page) {
 				console.log("changing to", page);
-				this.importHref(this.resolveUrl(page + '.html'), null, null, true);
-			}
+				this.importHref(this.resolveUrl(page + '.html'), null, this._showPage404, true);
+			},
 
+			_showPage404: function() {
+				console.log("showing 404 on main");
+			}
 
 		});
 
