@@ -8,8 +8,8 @@
 		<style>
 			.inner-image {
 			  position: absolute;
-			  top: 0px;
-			  right: 0px;
+			  padding-top: 10%;
+			  padding-left: 10%;
 			}
 		</style>
 
@@ -20,7 +20,7 @@
 			on-response="responseHandler"></iron-ajax>
 
 		<div style="margin: 40px; width: 70%; position: relative;">
-			<img style="max-width: 100%;" class="inner-image" src="/photos/{{photo}}" />
+			<img style="max-width: 80%;" class="inner-image" src="/photos/{{photo}}" />
 			<img style="max-width: 100%; position: absolute;" src="/images/frame_sm.png" />
 		</div>
 
@@ -41,7 +41,7 @@
 
 			randomImage: function(photos) {
 				return photos[Math.floor(Math.random()*photos.length)];
-			}
+			},
 
 		});
 
