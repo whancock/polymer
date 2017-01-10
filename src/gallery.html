@@ -5,8 +5,23 @@
 
 	<template>
 
-		<div>
-			<img style="max-width: 100%;" src="/images/frame_sm.png" />
+		<style>
+			.inner-image {
+			  position: absolute;
+			  top: 0px;
+			  right: 0px;
+			}
+		</style>
+
+		<iron-ajax
+			auto
+			url="../data/photos.json"
+			handle-as="json"
+			on-response="responseHandler"></iron-ajax>
+
+		<div style="margin: 40px; width: 70%; position: relative;">
+			<img style="max-width: 100%;" class="inner-image" src="/photos/{{photo}}" />
+			<img style="max-width: 100%; position: absolute;" src="/images/frame_sm.png" />
 		</div>
 
 	</template>
@@ -15,7 +30,18 @@
 
 		Polymer({
 
-			is: 'wh-gallery'
+			is: 'wh-gallery',
+
+			responseHandler: function(e, data) {
+
+				this.photos = data.xhr.response;
+				this.photo = this.randomImage(this.photos);
+
+			},
+
+			randomImage: function(photos) {
+				return photos[Math.floor(Math.random()*photos.length)];
+			}
 
 		});
 
