@@ -11,6 +11,11 @@
 			  padding-top: 10%;
 			  padding-left: 10%;
 			}
+
+			.container {
+				position: relative;
+			}
+
 		</style>
 
 		<iron-ajax
@@ -19,7 +24,7 @@
 			handle-as="json"
 			on-response="responseHandler"></iron-ajax>
 
-		<div style="margin: 40px; width: 70%; position: relative;">
+		<div class="container" style="margin: 40px; width: 70%; box-shadow: 0 0 10px #ccc;">
 			<img style="max-width: 80%;" class="inner-image" src="/photos/{{photo}}" />
 			<img style="max-width: 100%; position: absolute;" src="/images/frame_sm.png" />
 		</div>
