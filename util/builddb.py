@@ -10,3 +10,4 @@ photo_list_json = json.dumps(photos)
 
 with open(out_path, 'w') as photo_db:
 	photo_db.write(photo_list_json)
+
