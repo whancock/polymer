@@ -158,27 +158,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 					<div class="flex">
 
 						<template is="dom-repeat" items="{{will.edu.entry}}" as="school">
-							<div>
-								<span class="title">{{school.name}},</span>
-								<span>{{school.location}}</span>
-							</div>
 
-							<template is="dom-repeat" items="{{school.level}}" as="grade">
+							<div class="wedge">
 
-								<div class="horizontal layout">
-
-									<span>{{grade.label}}</span>
-
-									<span class="flex"></span>
-
-									<span class="date-right">
-										<span>{{grade.dateStart}}</span>
-										<span ng-if="grade.dateEnd"> - </span>
-										<span>{{grade.dateEnd}}</span>
-									</span>
-
+								<div>
+									<span class="title">{{school.name}},</span>
+									<span>{{school.location}}</span>
 								</div>
-							</template>
+
+								<template is="dom-repeat" items="{{school.level}}" as="grade">
+
+									<div class="horizontal layout">
+
+										<span>{{grade.label}}</span>
+
+										<span class="flex"></span>
+
+										<span class="date-right">
+											<span>{{grade.dateStart}}</span>
+											<span ng-if="grade.dateEnd"> - </span>
+											<span>{{grade.dateEnd}}</span>
+										</span>
+
+									</div>
+								</template>
+
+							</div>
 						</template>
 
 					</div>

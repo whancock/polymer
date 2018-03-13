@@ -1,14 +1,24 @@
 {
 	"name": "Will Hancock",
 	"phone": "240-466-6020",
-	"email": "will@willhancock.net",
-	"city": "Atlanta",
-	"state": "GA",
-	"zip": "30318",
+	"email": "will@willhancock.io",
+	"city": "Chicago",
+	"state": "IL",
+	"zip": "60626",
 
 	"edu": {
 		"label": "Education",
 		"entry": [{
+			"name": "Northwestern University",
+			"location": "Evanston, IL",
+			"level": [
+				{
+					"label": "PhD in Computer Science",
+					"dateStart": "Sept 2017",
+					"dateEnd": "present"
+				}
+			]
+		}, {
 			"name": "Georgia Institute of Technology",
 			"location": "Atlanta, Georgia",
 			"level": [
@@ -38,6 +48,15 @@
 	"experience": {
 		"label": "Experience",
 		"entry": [
+			{
+				"name": "Toyota Institute of Technology",
+				"location": "Nagoya, Japan",
+				"dateStart": "summer 2017",
+				"position": "NSF EAPSI Fellow",
+				"roles": [
+					"Researched deep language modeling in TensorFlow for story cloze understanding"
+				]
+			},
 			{
 				"name": "Naval Research Lab",
 				"location": "Washington DC",
@@ -131,9 +150,9 @@
 	"skills": {
 		"label": "Skills",
 		"entry": [
-			"Angular/JS,  Python,  Node,  PHP,  Java,  SQL,  C/OpenCV",
-			"Unix,  Apache,  I18N,  Photoshop/GIMP,  GIT,  SVN,  SASS/CSS,  MVC,  REST",
-			"Languages:  Mandarin, French (Beginner)"
+			"Lisp,  Python,  Java,  OpenCV",
+			"Reasoning,  Games,  Language Modeling",
+			"Languages:  Mandarin (Beginner)"
 		]
 	},
 
