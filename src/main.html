@@ -56,12 +56,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 					<span style="font-weight: 100; font-size: 32px; margin: 20px 0;">Will Hancock</span>
 
-					<div class="layout vertical center left-nav-links">
+					<div id="leftnavlinks" class="layout vertical center left-nav-links">
 
 						<iron-selector selected="[[page]]" attr-for-selected="name" role="navigation" class="vertical layout center route-selector">
-							<a name="resume" href="/resume">cv</a>
-							<a name="publications" href="/publications">publications</a>
-							<a name="gallery" href="/gallery">gallery</a>
+							<a name="resume" href="/resume" drawer-toggle>cv</a>
+							<a name="publications" href="/publications" drawer-toggle>publications</a>
+							<a name="gallery" href="/gallery" drawer-toggle>gallery</a>
 						</iron-selector>
 
 						<a href="https://github.com/whancock" target="_blank">github</a>
@@ -73,17 +73,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			</app-drawer>
 
 			<!-- Main content -->
-			<app-header-layout has-scrolling-region>
 
-				<iron-pages style="height: 100%; width: 100%;" role="main" selected="[[page]]" attr-for-selected="name">
-					<wh-resume name="resume"></wh-resume>
-					<wh-publications name="publications"></wh-publications>
-					<wh-gallery name="gallery"></wh-gallery>
-					<wh-resumeraw name="resumeraw"></wh-resumeraw>
-					<wh-view404 name="view404"></wh-view404>
-				</iron-pages>
+			<paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
 
-			</app-header-layout>
+			<iron-pages style="height: 100%; width: 100%;" role="main" selected="[[page]]" attr-for-selected="name">
+				<wh-resume name="resume"></wh-resume>
+				<wh-publications name="publications"></wh-publications>
+				<wh-gallery name="gallery"></wh-gallery>
+				<wh-resumeraw name="resumeraw"></wh-resumeraw>
+				<wh-view404 name="view404"></wh-view404>
+			</iron-pages>
 
 		</app-drawer-layout>
 

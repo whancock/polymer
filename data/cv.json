@@ -83,7 +83,7 @@
 				"name": "Design & Intelligence Lab",
 				"location": "Georgia Tech",
 				"dateStart": "Sept 2014",
-				"dateEnd": "present",
+				"dateEnd": "Dec 2016",
 				"roles": [
 					"Researching theory of invention by giving analogical reasoning information processing account of biologically inspired design prototypes",
 					"Developing Design Study Library, a research tool to teach biologically inspired design processes to non-experts"
@@ -93,7 +93,7 @@
 				"name": "Entertainment Intelligence Lab",
 				"location": "Georgia Tech",
 				"dateStart": "Jan 2015",
-				"dateEnd": "present",
+				"dateEnd": "Dec 2016",
 				"roles": [
 					"Researching learning narrative models using deep learning",
 					"Implemented narrative improv system using DBNs to allow human to interact with AI story agents"
